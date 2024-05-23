@@ -185,10 +185,6 @@ main {
     border-radius: 5px;
 }
 
-.all-posts .post-item h3 {
-    text-decoration: underline;
-}
-
 .auth-container {
     display: flex;
     justify-content: space-around;
@@ -257,4 +253,42 @@ main {
     justify-content: space-between;
     margin-bottom: 20px;
     font-size: 1.2em;
+}
+
+.postitle {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+
+.edit-button,
+.delete-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+    color: #fff;
+}
+
+.edit-button {
+    background: #007bff;
+}
+
+.edit-button:hover {
+    background: #0056b3;
+}
+
+.delete-button {
+    background: #dc3545;
+}
+
+.delete-button:hover {
+    background: #c82333;
 }

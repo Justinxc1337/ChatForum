@@ -98,7 +98,7 @@ nav a:hover::before {
 }
 
 main {
-    padding-top: 80px;
+    padding-top: 100px;
 }
 
 .post {
@@ -116,4 +116,25 @@ main {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+}
+
+.commentpost {
+    margin-top: 20px;
+}
+
+.text {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.comment-white {
+    background-color: white;
+}
+
+.comment-gray {
+    background-color: gray;
 }

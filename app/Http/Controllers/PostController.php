@@ -7,25 +7,34 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $posts = Post::where('title', 'LIKE', "%{$query}%")
+            ->orderByRaw("CASE WHEN title LIKE ? THEN 0 ELSE 1 END, title", ["%{$query}%"])
+            ->get();
+        return view('mainforum', ['posts' => $posts]);
+    }
+    
     public function show(Post $post)
     {
-    return view('post\show', compact('post'));
+        return view('post\show', compact('post'));
     }
     
     public function index()
     {
-    $posts = Post::all();
-    return view('posts.index', compact('posts'));
+        $posts = Post::all();
+        return view('posts.index', compact('posts'));
     }
     
     public function addComment(Request $request, Post $post)
     {
-    $request->validate(['body' => 'required']);
-    $post->comments()->create([
-        'body' => $request->body,
-        'user_id' => auth()->id() // get the ID of the currently authenticated user
-    ]);
-    return back();
+        $request->validate(['body' => 'required']);
+        $post->comments()->create([
+            'body' => $request->body,
+            'user_id' => auth()->id()
+        ]);
+        return back();
     }
     
     /*public function show(Post $post)

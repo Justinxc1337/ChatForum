@@ -17,8 +17,8 @@
             </div>
             <ul>
                 <li><a href="/">Home</a></li>
-                <li><a href="mainforum">Forum</a></li>
-                <li><a href="profile">My Profile</a></li>
+                <li><a href="../mainforum">Forum</a></li>
+                <li><a href="../profile">My Profile</a></li>
                 <li>
                     <a href="/logout" onclick="event.preventDefault(); if(confirm('Are you sure you want to logout?')){document.getElementById('logout-form').submit();}" class="logoutbutton">Logout</a>
                     <form id="logout-form" action="/logout" method="POST" style="display: none;">
@@ -32,27 +32,25 @@
     <main>
         <article>
             <section class="post">
-                <h1>{{ $post->title }} by {{$post->user->name}}</h1>
+                <p class="text">Post created on {{$post->created_at}} by {{$post->user->name}}</p>
+                <h1>{{ $post->title }}</h1>
                 <p>{{ $post->body }}</p>
             </section>
 
 
             <section class="comments-section">
-                <h2>Comments</h2>
-                @foreach ($post->comments as $comment)
-                    <p>{{ $comment->body }}</p>
-                @endforeach
-
-                <h2>Add a comment</h2>
+                <p class="text">Add a comment</p>
                 <form action="/post/{{ $post->id }}/comment" method="POST">
                     @csrf
                     <textarea name="body" placeholder="Your comment"></textarea>
                     <button type="submit">Add Comment</button>
                 </form>
 
-                @foreach ($post->comments as $comment)
+                @foreach ($post->comments as $index => $comment)
+                <section class="{{ $index % 2 == 0 ? 'comment-white' : 'comment-gray' }}">
                     <p>{{ $comment->body }}</p>
-                    <p>Posted by: {{ $comment->user->name }} on {{ $comment->created_at }}</p>
+                    <p class="commentpost">Posted by: {{ $comment->user->name }} on {{ $comment->created_at }}</p>
+                </section>
                 @endforeach
             </section>
         </article>

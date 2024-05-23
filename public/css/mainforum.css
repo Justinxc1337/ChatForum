@@ -100,3 +100,21 @@ nav a:hover::before {
 main {
     padding-top: 80px;
 }
+
+#allpost {
+    padding-left: 10px;
+}
+
+.posts {
+    background-color: gray; 
+    padding: 10px; 
+    margin: 10px
+}
+
+.postitle {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+    font-weight: 800;
+    text-decoration: underline;
+}

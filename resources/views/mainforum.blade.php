@@ -7,7 +7,6 @@
     <title>Forum | All Posts</title>
 </head>
 <body>
-    @auth
     <header>
         <nav class="container">
             <div class="logo">
@@ -29,39 +28,22 @@
     </header>
 
     <main>
+        <form action="/search" method="GET">
+            <input type="text" name="query" placeholder="Search posts / dont work yet">
+            <button type="submit">Search</button>
+        </form>
 
-    <div>
-        <h2>All Posts</h2>
-        @foreach ($posts as $post)
-        <div style="background-color: gray; padding: 10px; margin: 10px">
-            <h3 style="text-decoration: underline">{{ $post->title }} by {{$post->user->name}}</h3>
-            <p>{{ $post->body }}</p>
-        </div>
-    </div>
-    @endforeach
+        <article>
+            <h2 id="allpost">All Posts - There are {{count($posts)}} in total</h2>
+            @foreach ($posts as $post)
+            <section class="posts">
+                <h3><a href="/post/{{ $post->id }}" class="postitle">{{ $post->title }}</a> by {{$post->user->name}}</h3>
+                <!-- <h3 style="text-decoration: underline">{{ $post->title }} by {{$post->user->name}}</h3> -->
+                <p>{{ $post->body }}</p>
+            </section>
+        </article>
+        @endforeach
 
     </main>
-
-    @else
-    <div style="border: 3px solid black;">
-        <h2>Register</h2>
-        <form action="/register" method="POST">
-            @csrf
-            <input name="name" type="text" placeholder="name">
-            <input name="email" type="text" placeholder="email">
-            <input name="password" type="password" placeholder="password">
-            <button>Register</button>
-        </form>
-    </div>
-    <div style="border: 3px solid black;">
-        <h2>Login</h2>
-        <form action="/login" method="POST">
-            @csrf
-            <input name="loginname" type="text" placeholder="name">
-            <input name="loginpassword" type="password" placeholder="password">
-            <button>Login</button>
-        </form>
-    </div>
-    @endauth
 </body>
 </html>

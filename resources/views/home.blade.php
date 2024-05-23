@@ -33,7 +33,7 @@
     <main>
         <article class="post-section">
             <section class="newpost post-container">
-                <p>Create a new post</p>
+                <p class="text">Create a new post</p>
                 <form action="/create-post" method="POST">
                     @csrf
                     <label for="title">Title</label>
@@ -45,17 +45,17 @@
             </section>
 
             <section class="all-posts">
-                <h2>All My Posts</h2>
+                <h2 class="text2">All My Posts</h2>
                 @foreach ($posts as $post)
                 <div class="post-item">
-                    <h3><a href="/post/{{ $post->id }}">{{ $post->title }}</a> by {{$post->user->name}}</h3>
+                    <h3><a href="/post/{{ $post->id }}" class="postitle">{{ $post->title }}</a> by {{$post->user->name}}</h3>
                     <!-- <h3>{{ $post->title }} by {{$post->user->name}}</h3> -->
                     <p>{{ $post->body }}</p>
-                    <p><a href="/edit-post/{{$post->id}}">Edit Post</a></p>
+                    <p><a href="/edit-post/{{$post->id}}" class="edit-button">Edit Post</a></p>
                     <form action="/delete-post/{{$post->id}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button>Delete Post</button>
+                        <button class="delete-button">Delete Post</button>
                     </form>
                 </div>
                 @endforeach

@@ -106,8 +106,7 @@ nav a:hover::before {
 }
 
 .post-container {
-    width: 48%;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -119,6 +118,10 @@ nav a:hover::before {
 
 .post-container form {
     text-align: left;
+}
+
+.post-section {
+    margin-top: 100px;
 }
 
 .post-container label {
@@ -181,10 +184,6 @@ nav a:hover::before {
     border-radius: 5px;
 }
 
-.all-posts .post-item h3 {
-    text-decoration: underline;
-}
-
 .auth-container {
     display: flex;
     justify-content: space-around;
@@ -198,4 +197,60 @@ nav a:hover::before {
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-button,
+.delete-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-decoration: none;
+    color: #fff;
+}
+
+.edit-button {
+    background: #007bff;
+}
+
+.edit-button:hover {
+    background: #0056b3;
+}
+
+.delete-button {
+    background: #dc3545;
+}
+
+.delete-button:hover {
+    background: #c82333;
+}
+
+.postitle {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+.text {
+    font-size: 2.5em;
+    text-align: center;
+    color: #bf0603ff;
+    margin: 0;
+    font-weight: 800;
+    font-family: 'Poppins', 'Black', 'Roboto', sans-serif;
+}
+
+.text2 {
+    font-size: 2em;
+    text-align: center;
+    color: #bf0603ff;
+    margin: 0;
+    font-weight: 800;
+    font-family: 'Poppins', 'Black', 'Roboto', sans-serif;
+    margin-top: 30px;
 }
