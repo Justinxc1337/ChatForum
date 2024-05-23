@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -42,4 +43,22 @@ class UserController extends Controller
 
         return redirect('/');
     }
+
+    public function resetInfo(Request $request) {
+        $user = Auth::user();
+
+        $validatedData = $request->validate([
+            'newName' => ['required', 'string', 'max:255', Rule::unique('users', 'name')->ignore($user->id)],
+            'newEmail' => ['required', 'string', 'email', 'max:255', Rule::unique('users', 'email')->ignore($user->id)],
+            'newPassword' => 'required|string|min:8|confirmed',
+        ]);
+
+        $user->name = $validatedData['newName'];
+        $user->email = $validatedData['newEmail'];
+        $user->password = Hash::make($validatedData['newPassword']);
+        $user->save();
+
+        return redirect()->back()->with('status', 'Information updated successfully!');
+    }
 }
+

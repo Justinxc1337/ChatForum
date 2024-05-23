@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    <title>Home</title>
+    <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+    <title>My Profile</title>
 </head>
 <body>
 
@@ -31,19 +31,29 @@
     </header>
 
     <main>
-        <article class="post-section">
-            <section class="newpost post-container">
-                <p>Create a new post</p>
-                <form action="/create-post" method="POST">
-                    @csrf
-                    <label for="title">Title</label>
-                    <input id="title" name="title" type="text" placeholder="Title">
-                    <label for="body">Content</label>
-                    <textarea id="body" name="body" placeholder="Content"></textarea>
-                    <button class="button">Create Post</button>
-                </form>
-            </section>
+        <div class="profile-container">
+            <div class="profile-box">
+                <p class="profiletext">My Profile</p>
+                <p class="profileinfo">Name: {{ Auth::user()->name }}</p>
+                <p class="profileinfo">Email: {{ Auth::user()->email }}</p>
+            </div>
 
+            <div class="profile-box">
+                <p class="profiletext">Change Information</p>
+                <form action="/reset-info" method="POST">
+                    @csrf
+                    <input name="newName" type="text" placeholder="New Username">
+                    <input name="newEmail" type="text" placeholder="New Email">
+                    <input name="newPassword" type="password" placeholder="New Password">
+                    <button>Change</button>
+                </form>
+            </div>
+        </div>
+
+        
+        
+
+        <article class="post-section">
             <section class="all-posts">
                 <h2>All My Posts</h2>
                 @foreach ($posts as $post)

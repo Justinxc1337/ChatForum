@@ -3,29 +3,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="mainforum.css">
+    <link rel="stylesheet" href="{{ asset('css/mainforum.css') }}">
     <title>Forum | All Posts</title>
 </head>
 <body>
     @auth
     <header>
-        <p>You're logged in</p>
-        <form action="/logout" method="POST">
-            @csrf
-            <button>Logout</button>
-        </form>
+        <nav class="container">
+            <div class="logo">
+                <img src="image/logoResized.png" alt="Logo">
+                <span id="headertext">ChatForum</span>
+            </div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="mainforum">Forum</a></li>
+                <li><a href="profile">My Profile</a></li>
+                <li>
+                    <a href="/logout" onclick="event.preventDefault(); if(confirm('Are you sure you want to logout?')){document.getElementById('logout-form').submit();}" class="logoutbutton">Logout</a>
+                    <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-    <div style="border: 3px solid black;">
+    <main>
+
+    <div>
         <h2>All Posts</h2>
         @foreach ($posts as $post)
         <div style="background-color: gray; padding: 10px; margin: 10px">
-            <h3 style="text-decoration: underline">{{ $post->title }}</h3>
+            <h3 style="text-decoration: underline">{{ $post->title }} by {{$post->user->name}}</h3>
             <p>{{ $post->body }}</p>
         </div>
     </div>
     @endforeach
 
+    </main>
 
     @else
     <div style="border: 3px solid black;">

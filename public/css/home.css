@@ -1,0 +1,201 @@
+html, body {
+    margin: 0;
+    font-family: 'Poppins', 'Black', 'Roboto', sans-serif;
+    background-color: white;
+    padding: 0;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+}
+
+.logo span {
+    color: #fff;
+    font-size: 1.2em;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    letter-spacing: 0.1em;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Light background on hover */
+}
+
+.logoutbutton {
+    color: red;
+}
+
+nav a {
+    position: relative;
+    text-decoration: none;
+    color: #000;
+}
+
+nav a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background: white;
+    transition: all 0.5s ease;
+}
+
+nav a:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+#headertext {
+    font-size: 2.5em;
+    text-align: center;
+    color: #bf0603ff;
+    margin: 0;
+    font-weight: 800;
+    font-family: 'Poppins', 'Black', 'Roboto', sans-serif;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+.post-container {
+    width: 48%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.post-container p {
+    text-align: center;
+}
+
+.post-container form {
+    text-align: left;
+}
+
+.post-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.post-container input[name="title"],
+.post-container textarea[name="body"],
+.post-container button {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.post-container input[name="title"],
+.post-container textarea[name="body"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.post-container textarea[name="body"] {
+    height: 200px;
+    resize: vertical;
+}
+
+.post-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.post-container button:hover {
+    background-color: #0056b3;
+}
+
+.all-posts {
+    width: 80%;
+}
+
+.all-posts h2 {
+    text-align: center;
+}
+
+.post-section,
+.all-posts {
+    width: 80%; /* adjust this as needed */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.all-posts .post-item {
+    background-color: gray;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.all-posts .post-item h3 {
+    text-decoration: underline;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    padding-top: 120px;
+}
+
+.auth-box {
+    width: 45%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

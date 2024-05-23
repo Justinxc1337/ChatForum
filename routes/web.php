@@ -6,7 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
-    $åpsts = [];
+    $posts = [];
     if (auth()->check()) {
         $posts = auth()->user()->userPosts()->latest()->get();
     } else {
@@ -25,9 +25,16 @@ Route::post('/logout', [UserController::class, 'logout']);
 Route::post('/login', [UserController::class, 'login']);
 
 Route::get('/mainforum', function () {
-    $posts = Post::all();
-    return view('home', ['posts' => $posts]);
+    $posts = Post::latest()->get();
+    return view('mainforum', ['posts' => $posts]);
 });
+
+Route::get('/profile', function () {
+    $posts = auth()->user()->userPosts()->latest()->get();
+    return view('profile', ['posts' => $posts]);
+});
+
+Route::post('/reset-info', [UserController::class, 'resetInfo'])->middleware('auth');
 
 
 // Forum posts routes
