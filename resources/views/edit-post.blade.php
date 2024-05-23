@@ -10,7 +10,6 @@
     <header>
         <nav class="container">
             <div class="logo">
-                <img src="image/logoResized.png" alt="Logo">
                 <span id="headertext">ChatForum</span>
             </div>
             <ul>

@@ -48,7 +48,8 @@
                 <h2>All My Posts</h2>
                 @foreach ($posts as $post)
                 <div class="post-item">
-                    <h3>{{ $post->title }} by {{$post->user->name}}</h3>
+                    <h3><a href="/post/{{ $post->id }}">{{ $post->title }}</a> by {{$post->user->name}}</h3>
+                    <!-- <h3>{{ $post->title }} by {{$post->user->name}}</h3> -->
                     <p>{{ $post->body }}</p>
                     <p><a href="/edit-post/{{$post->id}}">Edit Post</a></p>
                     <form action="/delete-post/{{$post->id}}" method="POST">

@@ -59,3 +59,6 @@ Route::post('/create-post', [PostController::class, 'createPost']);
 Route::get('/edit-post/{post}', [PostController::class, 'showEditScreen']);
 Route::put('/edit-post/{post}', [PostController::class, 'updatePost']);
 Route::delete('/delete-post/{post}', [PostController::class, 'deletePost']);
+
+Route::get('/post/{post}', [PostController::class, 'show']);
+Route::post('/post/{post}/comment', [PostController::class, 'addComment']);
