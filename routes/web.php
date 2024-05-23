@@ -2,8 +2,10 @@
 
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Models\Message;
 
 Route::get('/', function () {
     $posts = [];
@@ -35,6 +37,21 @@ Route::get('/profile', function () {
 });
 
 Route::post('/reset-info', [UserController::class, 'resetInfo'])->middleware('auth');
+
+
+// yeah dont work
+Route::get('/chat', function () {
+    $messages = Message::all();
+    return view('chat', ['messages' => $messages]);
+});
+
+// Route for sending messages
+Route::post('/send-message', [ChatController::class, 'sendMessage']);
+
+// Route for retrieving messages
+Route::get('/get-messages', [ChatController::class, 'getMessages']);
+
+
 
 
 // Forum posts routes
