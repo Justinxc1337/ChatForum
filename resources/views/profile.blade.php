@@ -8,7 +8,6 @@
     <title>My Profile</title>
 </head>
 <body>
-
     @auth
     <header>
         <nav class="container">
@@ -31,6 +30,22 @@
     </header>
 
     <main>
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div class="profile-container">
             <div class="profile-box">
                 <p class="profiletext">My Profile</p>
@@ -42,16 +57,14 @@
                 <p class="profiletext">Change Information</p>
                 <form action="/reset-info" method="POST">
                     @csrf
-                    <input name="newName" type="text" placeholder="New Username">
-                    <input name="newEmail" type="text" placeholder="New Email">
+                    <input name="newName" type="text" placeholder="New Username" value="{{ old('newName') }}">
+                    <input name="newEmail" type="text" placeholder="New Email" value="{{ old('newEmail') }}">
                     <input name="newPassword" type="password" placeholder="New Password">
+                    <input name="newPassword_confirmation" type="password" placeholder="Confirm New Password">
                     <button>Change</button>
                 </form>
             </div>
         </div>
-
-        
-        
 
         <article class="post-section">
             <section class="all-posts">
