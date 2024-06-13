@@ -156,3 +156,9 @@ nav a:hover::before {
 .postcontainer button:hover {
     background-color: #0056b3;
 }
+
+@media (max-width: 840px) {
+    .logo {
+        display: none;
+    }
+}

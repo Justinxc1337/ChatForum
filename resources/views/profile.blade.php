@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <title>My Profile</title>
 </head>
 <body>
@@ -85,6 +86,21 @@
             </section>
         </article>
     </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div>
+                    <a href="/about">About Us</a>
+                    <a href="/contact">Contact</a>
+                    <a href="/privacy">Privacy Policy</a>
+                </div>
+                <div>
+                    CVR: 12345678 | Phone: +45 10 20 30 40
+                </div>
+            </div>
+        </div>
+    </footer>
 
     @else
     <header>

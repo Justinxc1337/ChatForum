@@ -1,0 +1,30 @@
+footer {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-family: 'Poppins', 'Black', 'Roboto', sans-serif;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+footer .footer-content div {
+    margin: 10px 0;
+}

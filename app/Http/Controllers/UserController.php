@@ -61,5 +61,15 @@ class UserController extends Controller
 
         return redirect()->back()->with('status', 'Information updated successfully!');
     }
+
+    public function showProfile() {
+        if (auth()->check()) {
+            $user = auth()->user();
+            $posts = $user->userPosts();
+            return view('profile', compact('posts'));
+        } else {
+            return redirect('/login')->with('alert', 'You must be logged in to view the profile.');
+        }
+    }
 }
 

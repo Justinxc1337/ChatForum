@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/mainforum.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
     <title>Forum | All Posts</title>
 </head>
 <body>
@@ -18,10 +19,12 @@
                 <li><a href="mainforum">Forum</a></li>
                 <li><a href="profile">My Profile</a></li>
                 <li>
-                    <a href="/logout" onclick="event.preventDefault(); if(confirm('Are you sure you want to logout?')){document.getElementById('logout-form').submit();}" class="logoutbutton">Logout</a>
-                    <form id="logout-form" action="/logout" method="POST" style="display: none;">
-                        @csrf
-                    </form>
+                    @auth
+                        <a href="/logout" onclick="event.preventDefault(); if(confirm('Are you sure you want to logout?')){document.getElementById('logout-form').submit();}" class="logoutbutton">Logout</a>
+                        <form id="logout-form" action="/logout" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    @endauth
                 </li>
             </ul>
         </nav>
@@ -45,5 +48,20 @@
         @endforeach
 
     </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div>
+                    <a href="/about">About Us</a>
+                    <a href="/contact">Contact</a>
+                    <a href="/privacy">Privacy Policy</a>
+                </div>
+                <div>
+                    CVR: 12345678 | Phone: +45 10 20 30 40
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

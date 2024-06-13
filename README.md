@@ -1,7 +1,8 @@
 # ChatForum
 ChatForum made as a school finals project. <br>
 Worked on in less than a month (less than 10 days in overall time) <br>
-
+Made small fixes and changes after a month <br>
+php artisan serve <br>
 
 
 Feel free to download and use/edit whatever you like. <br>

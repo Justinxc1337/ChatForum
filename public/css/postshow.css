@@ -138,3 +138,9 @@ main {
 .comment-gray {
     background-color: gray;
 }
+
+@media (max-width: 840px) {
+    .logo {
+        display: none;
+    }
+}
