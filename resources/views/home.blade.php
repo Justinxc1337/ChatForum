@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    <script src="{{ asset('js/captcha.js') }}"></script>
     <title>Home</title>
 </head>
 <body>
@@ -109,7 +110,8 @@
                 @csrf
                 <input name="loginname" type="text" placeholder="Username">
                 <input name="loginpassword" type="password" placeholder="Password">
-                <button>Login</button>
+                <button id="loginSubmit" class="button2" disabled>Login</button>
+                <button id="verifyHumanButton" onclick="verifyHuman(event)">I'm not a bot</button>
             </form>
         </div>
         <div class="auth-box">
@@ -119,7 +121,8 @@
                 <input name="name" type="text" placeholder="Username">
                 <input name="email" type="text" placeholder="Email">
                 <input name="password" type="password" placeholder="Password">
-                <button>Register</button>
+                <button id="registerSubmit" disabled>Register</button>
+                <button id="verifyHumanButton" onclick="verifyHuman(event)">I'm not a bot</button>
             </form>
         </div>
     </div>

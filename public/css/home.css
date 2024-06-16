@@ -260,3 +260,17 @@ nav a:hover::before {
         display: none;
     }
 }
+
+#verifyHumanButton {
+    background-color: #bf0603ff;
+    color: white; /* White text */
+    padding: 10px 24px; /* Padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Increase font size */
+}
+
+#verifyHumanButton:hover {
+    background-color: rgb(126, 4, 2);
+}
